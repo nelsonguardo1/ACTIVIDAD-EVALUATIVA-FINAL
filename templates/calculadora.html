@@ -157,6 +157,16 @@
    salud = document.getElementById("salud").value; 
    Aportes = document.getElementById("Pensiones").value; 
    Subsidio = 117172;
+   
+   if (a===""){
+
+    alert ("Ingrese su salario!");  
+
+  } else if(a < 1000000) {
+
+    alert ("Ingrese un valor mayor a 999.999!");
+
+  }
 
    if (a === ""){
     a = 0;
