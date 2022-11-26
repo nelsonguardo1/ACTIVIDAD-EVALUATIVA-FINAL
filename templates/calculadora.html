@@ -181,13 +181,23 @@ if (Aportes === ""){
      suma=parseFloat(a)+parseFloat(y);  
      text= suma;
 
+    if (y > 0){
+
+      y = y * 0.30;
+
+    }
+
      if (a >=  4000000){
 
       FVP = a * 0.25;
+      FVP = FVP + y;
+
 
      } else {
 
       FVP = a * 0.26
+      FVP = FVP + y;
+      
      }
 
      Saludobligatoria = a / 25;
