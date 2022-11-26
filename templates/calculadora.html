@@ -20,7 +20,7 @@
                 <span for="Salario" id="lblSalaryCol">Salario:</span>
               </div>
               <div class="col-md-6 col-xs-12 text-left">
-                <input class="form-control" type="number" id="salario" name="salario" min="1000000" required >
+                <input class="form-control" type="text" id="salario" name="salario" required >
               </div>
               <div class="col-md-6 col-xs-12">
                 <span id="Num1" class="circle-number">2</span>
@@ -151,34 +151,49 @@
   </div>
 <script>
  function myFunction() {  
-   var x,y,suma,text,Subsidio,FVP, Saludobligatoria, salud,PensioObligatorian, Aportes, CNM;  
-   x = document.getElementById("salario").value;  
+   var a,y,suma,text,Subsidio,FVP, Saludobligatoria, salud,PensioObligatorian, Aportes, CNM;  
+   a = document.getElementById("salario").value;  
    y = document.getElementById("Otros").value; 
    salud = document.getElementById("salud").value; 
    Aportes = document.getElementById("Pensiones").value; 
    Subsidio = 117172;
-   if (x === ""){
-    x = 0;
+
+   if (a === ""){
+    a = 0;
    }
+
   if (y === ""){
     y = 0;
    }
+
  if (salud === ""){
     salud = 0;
    } 
+
 if (Aportes === ""){
     Aportes = 0;
    }    
-   if (isNaN(x) || isNaN(y)) {  
+
+   if (isNaN(a) || isNaN(y)) {  
      text = "Es necesarios introducir dos números válidos";  
    } else {  
      //si no ponemos parseFloat concatenaría x con y  
-     suma=parseFloat(x)+parseFloat(y);  
-     text= suma;  
-     FVP = suma* 0.26;
-     Saludobligatoria = suma / 25;
-     PensioObligatorian  = suma / 25
+     suma=parseFloat(a)+parseFloat(y);  
+     text= suma;
+
+     if (a >=  4000000){
+
+      FVP = a * 0.25;
+
+     } else {
+
+      FVP = a * 0.26
+     }
+
+     Saludobligatoria = a / 25;
+     PensioObligatorian  = a / 25
      CNM = suma + Subsidio - Saludobligatoria - PensioObligatorian - Aportes - salud;
+
    }  
    document.getElementById("Total").innerHTML = text.toLocaleString();  
    document.getElementById("TotalFVP").innerHTML = FVP.toLocaleString();  
